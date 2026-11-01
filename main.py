@@ -1,3 +1,4 @@
+import os
 import uuid
 from datetime import datetime
 from typing import List, Optional
@@ -7,8 +8,8 @@ from sqlalchemy import Column, DateTime, ForeignKey, String, Table, create_engin
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
 
-DATABASE_URL = os.getenv("postgresql://neondb_owner:npg_HgPn1QCceUF9@ep-old-smoke-ba9yav8w.c-8.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
-engine = create_engine("postgresql://neondb_owner:npg_HgPn1QCceUF9@ep-old-smoke-ba9yav8w.c-8.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require")
+DATABASE_URL = os.getenv("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
