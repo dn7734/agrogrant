@@ -5,7 +5,7 @@ import httpx
 class LLMService:
     def __init__(self):
         self.api_url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
-        self.api_key = os.getenv("AQ.Ab8RN6KqUmTdQdN7AWUMwgRt_arRWgTR_tEyxFbo9LcMQVdkEQ")
+        self.api_key = os.getenv("GEMINI_API_KEY")
 
     async def generate_response(self, user_message: str, current_profile: dict) -> dict:
         system_instruction = (
